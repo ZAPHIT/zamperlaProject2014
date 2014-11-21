@@ -115,10 +115,11 @@ var categoryCompareID: NSMutableArray =  NSMutableArray()
     
 var c: Int = Int()
 var slideshowSequence = 1
-    
+
+@IBOutlet var onlineOffline: UIImageView!
 @IBOutlet var initialbackground: UIImageView!
     
-    @IBOutlet var slideImageView: UIImageView!
+@IBOutlet var slideImageView: UIImageView!
     
 
 @IBAction func contactUsBUtton(sender: AnyObject) {
@@ -175,10 +176,6 @@ var slideshowSequence = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let realm = RLMRealm.defaultRealm()
-//               let token = realm.addNotificationBlock { note, realm in
-//           InitialZAPViewController.updateUI()
-//        }
         
         var timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("internetDetector"), userInfo: nil, repeats: true)
         
@@ -188,10 +185,6 @@ var slideshowSequence = 1
         loadData2()
         loadData3()
         loadData4()
-        
-        
-      
-            
 
         
         NSNotificationCenter.defaultCenter().postNotificationName("NotificationIdentifier", object: nil)
@@ -209,10 +202,14 @@ var slideshowSequence = 1
         }
     
         else {
-            slideshowSequence = 1
+            println(self.onlineStatus)
+
             slideImageView.image = UIImage(named:"image\(slideshowSequence)")
+            slideshowSequence = 1
+            
+
         }
-        
+
         
     }
     
@@ -224,33 +221,27 @@ var slideshowSequence = 1
     
         
         func internetDetector(){
-            
-            
-            var url = NSURL(string: "https://www.parse.com")
-            
-            var condata:NSData! = NSData(contentsOfURL: url!) as NSData!
-            
-            if ( condata != nil)
-            {
-                onlineStatus = 0
-        
-            }
-            else
-            {
-                onlineStatus = 1
-            }
 
 
-            
-            if(onlineStatus == 0){
-                    println("ONLINE")
-                }
-            
-            else{
-                println("OFFLINE")
-            }
+            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    var url = NSURL(string: "https://www.parse.com")
+                    
+                    var condata:NSData! = NSData(contentsOfURL: url!) as NSData!
+                    
+                    if ( condata != nil)
+                    {
+                        self.onlineOffline.image = UIImage(named:"ONLINE")
+                    }
+                    else
+                    {
+                        self.onlineOffline.image = UIImage(named:"OFFLINE")
+                    }
 
-
+            })
+        })
         }
         
         
