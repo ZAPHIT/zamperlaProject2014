@@ -114,10 +114,12 @@ var categoryCompareID: NSMutableArray =  NSMutableArray()
     var onlineLabel: NSString = NSString()
     
 var c: Int = Int()
+var slideshowSequence = 1
     
 @IBOutlet var initialbackground: UIImageView!
     
     @IBOutlet var slideImageView: UIImageView!
+    
 
 @IBAction func contactUsBUtton(sender: AnyObject) {
 
@@ -180,6 +182,8 @@ var c: Int = Int()
         
         var timer = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("internetDetector"), userInfo: nil, repeats: true)
         
+        var timer2 = NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: Selector("slideshow"), userInfo: nil, repeats: true)
+        
         loadData()
         loadData2()
         loadData3()
@@ -194,6 +198,22 @@ var c: Int = Int()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "methodOFReceivedNotication:", name:"NotificationIdentifier", object: nil)
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func slideshow(){
+        
+        if (slideshowSequence < 7){
+            slideImageView.image = UIImage(named:"image\(slideshowSequence)")
+            slideshowSequence++
+        }
+    
+        else {
+            slideshowSequence = 1
+            slideImageView.image = UIImage(named:"image\(slideshowSequence)")
+        }
+        
+        
     }
     
     func methodOFReceivedNotication(notification: NSNotification){

@@ -140,7 +140,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="plain-1" translatesAutoresizingMaskIntoConstraints="NO" id="Hmd-VU-8xB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZamperlaBackgroundimage" translatesAutoresizingMaskIntoConstraints="NO" id="Hmd-VU-8xB">
                                 <rect key="frame" x="-4" y="64" width="607" height="541"/>
                             </imageView>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iuj-3N-c4q">
@@ -153,7 +153,8 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="yev-mc-8Yp">
                                 <rect key="frame" x="0.0" y="146" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="K5Y-fj-CAg"/>
+                                    <constraint firstAttribute="width" constant="600" id="Xy1-R0-PSZ"/>
+                                    <constraint firstAttribute="height" constant="44" id="Z8U-u5-aL1"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -192,13 +193,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HtS-PM-Xfq" firstAttribute="top" secondItem="yev-mc-8Yp" secondAttribute="bottom" id="Naf-eQ-rbd"/>
-                            <constraint firstItem="HtS-PM-Xfq" firstAttribute="leading" secondItem="UcM-LI-bLO" secondAttribute="leadingMargin" constant="-17" id="Oa4-8j-d0s"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HtS-PM-Xfq" secondAttribute="trailing" constant="-15" id="WPF-EN-Q8b"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yev-mc-8Yp" secondAttribute="trailing" constant="-16" id="ipo-rr-G4y"/>
-                            <constraint firstItem="yev-mc-8Yp" firstAttribute="top" secondItem="civ-oj-Vgz" secondAttribute="bottom" constant="82" id="jig-Ux-Tsf"/>
-                            <constraint firstItem="yag-as-VsA" firstAttribute="top" secondItem="HtS-PM-Xfq" secondAttribute="bottom" constant="150" id="rXU-D9-6fP"/>
-                            <constraint firstItem="yev-mc-8Yp" firstAttribute="leading" secondItem="UcM-LI-bLO" secondAttribute="leadingMargin" constant="-16" id="xrL-7J-AaH"/>
+                            <constraint firstItem="HtS-PM-Xfq" firstAttribute="leading" secondItem="UcM-LI-bLO" secondAttribute="leadingMargin" constant="-17" id="1un-6e-FWe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HtS-PM-Xfq" secondAttribute="trailing" constant="-15" id="7wa-br-Svo"/>
+                            <constraint firstItem="yag-as-VsA" firstAttribute="top" secondItem="HtS-PM-Xfq" secondAttribute="bottom" constant="150" id="BYd-J4-atH"/>
+                            <constraint firstItem="Hmd-VU-8xB" firstAttribute="leading" secondItem="UcM-LI-bLO" secondAttribute="leadingMargin" constant="-20" id="D1V-UP-mbO"/>
+                            <constraint firstItem="HtS-PM-Xfq" firstAttribute="top" secondItem="yev-mc-8Yp" secondAttribute="bottom" id="VNg-8O-9oo"/>
+                            <constraint firstItem="Hmd-VU-8xB" firstAttribute="top" secondItem="civ-oj-Vgz" secondAttribute="bottom" id="dgt-A1-i9Y"/>
+                            <constraint firstItem="yev-mc-8Yp" firstAttribute="leading" secondItem="UcM-LI-bLO" secondAttribute="leadingMargin" constant="-16" id="do9-zZ-cZy"/>
+                            <constraint firstItem="HtS-PM-Xfq" firstAttribute="centerY" secondItem="yev-mc-8Yp" secondAttribute="centerY" constant="152" id="g8n-rq-P7l"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hmd-VU-8xB" secondAttribute="trailing" constant="-19" id="iJH-c5-oVL"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Hmd-VU-8xB" secondAttribute="bottom" constant="-5" id="mhD-60-GjG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yev-mc-8Yp" secondAttribute="trailing" constant="-16" id="znG-VM-C7e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fpz-K6-O2o"/>
@@ -971,7 +976,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plain-1" translatesAutoresizingMaskIntoConstraints="NO" id="WIw-qE-Hyq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="mAW-3Q-6Dg">
+                                <rect key="frame" x="1" y="64" width="320" height="504"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZamperlaBackgroundimage" translatesAutoresizingMaskIntoConstraints="NO" id="WIw-qE-Hyq">
                                 <rect key="frame" x="0.0" y="64" width="320" height="510"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RT6-u9-5Y9">
@@ -982,7 +990,7 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <size key="titleShadowOffset" width="20" height="100"/>
-                                <state key="normal" image="aboutUsButton copy">
+                                <state key="normal" image="aboutUsButton4">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.25098040699958801" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -998,7 +1006,7 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <size key="titleShadowOffset" width="20" height="100"/>
-                                <state key="normal" title="CONTACT US" image="ContacttUsButton copy">
+                                <state key="normal" image="CONTACTUSBUTTON">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.25098040699958801" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1014,7 +1022,7 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <size key="titleShadowOffset" width="20" height="100"/>
-                                <state key="normal" image="productButton copy">
+                                <state key="normal" image="productsButton">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.25098040699958801" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1028,11 +1036,11 @@
                                     <constraint firstAttribute="height" constant="124" id="OdV-6F-TGE"/>
                                     <constraint firstAttribute="width" constant="124" id="WiD-Ec-5cx"/>
                                 </constraints>
+                                <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <size key="titleShadowOffset" width="20" height="100"/>
-                                <state key="normal" title="VISIT OUR WEBSITE" image="OURWEBSITEButton copy">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleShadowColor" red="0.25098040699958801" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="OURWEBSITE">
+                                    <color key="titleShadowColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="webActionBtn:" destination="Ou7-JH-6qg" eventType="touchUpInside" id="eaZ-r5-vU8"/>
@@ -1046,7 +1054,7 @@
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
                                 <size key="titleShadowOffset" width="20" height="100"/>
-                                <state key="normal" title="WHERE WE ARE" image="WhereWeAREButton copy">
+                                <state key="normal" image="FINDUS">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" red="0.25098040699958801" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -1054,7 +1062,7 @@
                                     <action selector="locationButton:" destination="Ou7-JH-6qg" eventType="touchUpInside" id="mYh-Aq-Q78"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ZamperlaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="UlG-nx-3Jx">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LOGOLOGO" translatesAutoresizingMaskIntoConstraints="NO" id="UlG-nx-3Jx">
                                 <rect key="frame" x="117" y="255" width="76.5" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="76.5" id="pBc-AP-gI8"/>
@@ -1067,7 +1075,7 @@
                                     <constraint firstAttribute="width" constant="124" id="5kQ-Tw-5b6"/>
                                     <constraint firstAttribute="height" constant="124" id="ihh-kT-Qqh"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="productButton copy">
+                                <state key="normal" image="productsButton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -1085,11 +1093,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="WIw-qE-Hyq" secondAttribute="trailing" constant="-16" id="Vay-oh-YkB"/>
                             <constraint firstItem="vE3-yI-nE4" firstAttribute="centerY" secondItem="wCF-SO-jWh" secondAttribute="centerY" constant="-7" id="XQF-5J-OOo"/>
                             <constraint firstItem="RT6-u9-5Y9" firstAttribute="top" secondItem="UlG-nx-3Jx" secondAttribute="bottom" constant="-6" id="Xo8-j7-5Ba"/>
+                            <constraint firstItem="mAW-3Q-6Dg" firstAttribute="top" secondItem="rtr-rP-T76" secondAttribute="bottom" id="aRt-XO-VeM"/>
                             <constraint firstItem="rJr-lK-r8g" firstAttribute="leading" secondItem="wCF-SO-jWh" secondAttribute="trailing" constant="-90" id="eCT-Ie-DTe"/>
                             <constraint firstItem="rJr-lK-r8g" firstAttribute="centerY" secondItem="UlG-nx-3Jx" secondAttribute="centerY" constant="-8" id="i4Z-uJ-SN3"/>
                             <constraint firstItem="WIw-qE-Hyq" firstAttribute="leading" secondItem="mPz-AJ-cuX" secondAttribute="leadingMargin" constant="-16" id="iy6-Nf-jVD"/>
                             <constraint firstAttribute="bottomMargin" secondItem="WIw-qE-Hyq" secondAttribute="bottom" constant="-6" id="n7P-KX-wVV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mAW-3Q-6Dg" secondAttribute="trailing" constant="-17" id="nMp-Hj-1Y1"/>
+                            <constraint firstItem="mAW-3Q-6Dg" firstAttribute="leading" secondItem="mPz-AJ-cuX" secondAttribute="leadingMargin" constant="-15" id="nZI-47-NVZ"/>
                             <constraint firstItem="rJr-lK-r8g" firstAttribute="leading" secondItem="UlG-nx-3Jx" secondAttribute="trailing" constant="2.5" id="pwd-Ld-nHP"/>
+                            <constraint firstItem="wgO-VX-eqS" firstAttribute="top" secondItem="mAW-3Q-6Dg" secondAttribute="bottom" id="qLZ-Br-2BG"/>
                             <constraint firstItem="5Qp-5y-bBk" firstAttribute="centerY" secondItem="UlG-nx-3Jx" secondAttribute="centerY" constant="5" id="qfC-tK-YTC"/>
                             <constraint firstItem="cjX-4S-MfW" firstAttribute="centerY" secondItem="RT6-u9-5Y9" secondAttribute="centerY" constant="8" id="r3j-KY-yxV"/>
                             <constraint firstItem="cjX-4S-MfW" firstAttribute="leading" secondItem="RT6-u9-5Y9" secondAttribute="trailing" constant="-25" id="rAb-JL-Joy"/>
@@ -1104,16 +1116,26 @@
                                 <action selector="logoutButton:" destination="Ou7-JH-6qg" id="o7g-hq-oof"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="l0E-N8-v0D">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gEb-1n-fzh">
+                                <rect key="frame" x="254" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Alberto_Zamperla">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="initialbackground" destination="WIw-qE-Hyq" id="CJO-0S-HOU"/>
+                        <outlet property="slideImageView" destination="mAW-3Q-6Dg" id="rKT-52-ElH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N2h-eC-EUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="299" y="1274"/>
+            <point key="canvasLocation" x="313" y="1281"/>
         </scene>
         <!--WebsiteViewController-->
         <scene sceneID="sDn-BB-s99">
@@ -1803,7 +1825,8 @@ Cg
     </scenes>
     <resources>
         <image name="Alberto_Zamperla" width="166" height="133"/>
-        <image name="ContacttUsButton copy" width="569" height="168"/>
+        <image name="CONTACTUSBUTTON" width="569" height="168"/>
+        <image name="FINDUS" width="569" height="168"/>
         <image name="Image-1" width="367" height="184"/>
         <image name="Image-2" width="367" height="193"/>
         <image name="Image-3" width="367" height="184"/>
@@ -1811,13 +1834,15 @@ Cg
         <image name="Image-5" width="367" height="245"/>
         <image name="Image-6" width="367" height="245"/>
         <image name="Image-7" width="367" height="245"/>
-        <image name="OURWEBSITEButton copy" width="569" height="168"/>
+        <image name="LOGOLOGO" width="360" height="168"/>
+        <image name="OURWEBSITE" width="569" height="168"/>
         <image name="ViewButton" width="764" height="400"/>
-        <image name="WhereWeAREButton copy" width="569" height="168"/>
+        <image name="ZamperlaBackgroundimage" width="512" height="682"/>
         <image name="ZamperlaLogo" width="425" height="200"/>
-        <image name="aboutUsButton copy" width="569" height="168"/>
+        <image name="aboutUsButton4" width="569" height="168"/>
+        <image name="image1" width="250" height="206"/>
         <image name="plain-1" width="640" height="1136"/>
-        <image name="productButton copy" width="569" height="168"/>
+        <image name="productsButton" width="569" height="168"/>
         <image name="submitButton" width="676" height="244"/>
         <image name="whereweare" width="293" height="150"/>
     </resources>
