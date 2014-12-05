@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 //class SketchRealm: RLMObject {
 //    dynamic var sketchName: String = ""
@@ -35,6 +36,7 @@ class SketchViewController: UIViewController, UICollectionViewDataSource, UIColl
     var sketchLocalIDArray: NSMutableArray = NSMutableArray()
     var imageHolder: UIImage = UIImage()
     var imageNameHolder: NSString = NSString()
+    var bufferingIndex : Int = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,8 +86,8 @@ class SketchViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let cell:SketchCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("sketchcell", forIndexPath: indexPath) as SketchCollectionViewCell
         
-        cell.backgroundColor = UIColor.blackColor()
-        collectionView.backgroundColor = UIColor.blueColor()
+ //       cell.backgroundColor = UIColor.blackColor()
+//        collectionView.backgroundColor = UIColor.blueColor()
         let receiveImage: UIImage = sketchArr.objectAtIndex(indexPath.row) as UIImage
         cell.cellimage.image =  receiveImage
         
@@ -98,23 +100,31 @@ class SketchViewController: UIViewController, UICollectionViewDataSource, UIColl
 
         
         
-        for obj in SketchRealm.allObjects()        {
-            
-            if let obj = obj as? SketchRealm
-            {
-               
-               
-                if (obj.sketchID == String(sketchLocalIDArray[indexPath.row] as NSString))
-                {
-                    self.nameLabel.text = obj.sketchName
-                    imageNameHolder = obj.sketchName
-                }
-            }
-            else
-            {
-                
-            }
-        }
+//        for obj in SketchRealm.allObjects()        {
+//            
+//            if let obj = obj as? SketchRealm
+//            {
+//               
+//               
+//                if (obj.sketchID == String(sketchLocalIDArray[indexPath.row] as NSString))
+//                {
+//                    self.nameLabel.text = obj.sketchName
+//                    imageNameHolder = obj.sketchName
+//                }
+//            }
+//            else
+//            {
+//                
+//            }
+//        }
+        
+        
+        let viewSketches = self.storyboard!.instantiateViewControllerWithIdentifier("CustomPageViewController") as CustomPageViewController
+        
+       viewSketches.bufferIndex = indexPath.row
+        self.navigationController!.pushViewController(viewSketches, animated: true)
+        
+        println(indexPath.row)
         println("ClICKED")
         
     }
@@ -141,10 +151,28 @@ class SketchViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "mySegue") {
+        
+//        if (segue.identifier == "mySegue") {
+//            
+//            let vc = segue.destinationViewController as SketchImageViewController
+//            vc.nameHolder = imageNameHolder
+//            
+//            
+//        }
+        
+//                if (segue.identifier == "showSketch") {
+//        
+//                    let vc = segue.destinationViewController as CustomPageViewController
+//                    vc.bufferIndex = self.bufferingIndex
+//        
+//                }
+        
+        
+        
+        if (segue.identifier == "mySegue2") {
             
-            let vc = segue.destinationViewController as SketchImageViewController
-            vc.nameHolder = imageNameHolder
+            let vc = segue.destinationViewController as CustomScrollViewController
+           // vc.nameHolder = imageNameHolder
             
             
         }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Realm
+import Parse
 
 
 class ViewController: UIViewController,UICollectionViewDataSource, UICollectionViewDelegate {
@@ -18,6 +19,8 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
     @IBOutlet var rideNameLabel: UILabel!
     var productsID:NSMutableArray = NSMutableArray()
     var imageName:NSString =  NSString()
+    var buffering: UIImage = UIImage()
+    var bufferingIndex: Int = Int()
 
 
 
@@ -30,6 +33,8 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         if (segue.identifier == "mySegue") {
             
             let vc = segue.destinationViewController as SecondViewController
+            vc.newImageBuffer = buffering
+            
             vc.imageNameHolder = imageName
             
         }
@@ -67,6 +72,7 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
         println(url)
 
         loadLocalData()
+         zapcollection.panGestureRecognizer.delaysTouchesBegan = zapcollection.delaysContentTouches
         
     }
 
@@ -88,8 +94,8 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:ZAPCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("cellzap", forIndexPath: indexPath) as ZAPCollectionViewCell
         
-        cell.backgroundColor = UIColor.blackColor()
-        collectionView.backgroundColor = UIColor.blueColor()
+     //   cell.backgroundColor = UIColor.blackColor()
+       // collectionView.backgroundColor = UIColor.blueColor()
         
         let receiveImage: UIImage = ImageArray.objectAtIndex(indexPath.row) as UIImage
         cell.cellimage.image = receiveImage
@@ -102,18 +108,27 @@ class ViewController: UIViewController,UICollectionViewDataSource, UICollectionV
     
 func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath){
 
-    for obj in KiddieRideRealm.allObjects()
-    {if let obj = obj as? KiddieRideRealm
-      { if (obj.kiddieID == String(productsID[indexPath.row] as NSString))
-            {
-                self.rideNameLabel.text = obj.kiddieName
-                self.imageName = obj.kiddieName
-            }
-      }
-     else
-      {
-      }
-    }
+//    for obj in KiddieRideRealm.allObjects()
+//    {if let obj = obj as? KiddieRideRealm
+//      { if (obj.kiddieID == String(productsID[indexPath.row] as NSString))
+//            {
+//                self.buffering = UIImage(data: obj.kiddieData)!
+//                self.rideNameLabel.text = obj.kiddieName
+//                self.imageName = obj.kiddieName
+//            }
+//      }
+//     else
+//      {
+//      }
+//    }
+    
+    
+    let viewKiddie = self.storyboard!.instantiateViewControllerWithIdentifier("CustomPage2ndViewController") as CustomPage2ndViewController
+    
+    viewKiddie.bufferIndex = indexPath.row
+    self.navigationController!.pushViewController(viewKiddie, animated: true)
+    
+    
     println("ClICKED")
     
 }

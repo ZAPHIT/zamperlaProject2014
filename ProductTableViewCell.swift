@@ -10,6 +10,13 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
 
+    @IBOutlet var contentImageCell: UIImageView!
+ 
+    @IBOutlet var categoryLabel: UILabel!
+    @IBOutlet var tags: UILabel!
+    
+    @IBOutlet var categoryList: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

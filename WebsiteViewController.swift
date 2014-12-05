@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import WebKit
 
-class WebsiteViewController: UIViewController {
+class WebsiteViewController: UIViewController{
 
     @IBOutlet var webViewBackgroundImage: UIImageView!
     @IBOutlet var webView: UIWebView!
     
     @IBOutlet var webIndicator: UIActivityIndicatorView!
+  
+    @IBAction func backWebView(sender: AnyObject)
+    {
+        
+        webView.goBack()
+    }
     
-    var URLPath = "http://zamperla.com/en/"
+    @IBAction func forwardWebView(sender: AnyObject)
+    {
+        webView.goForward()
+    }
+    
+    
+    var URLPath = "http://zamperla.com"
     
     override func viewDidLoad() {
         super.viewDidLoad()

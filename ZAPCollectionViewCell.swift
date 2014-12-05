@@ -18,6 +18,15 @@ class ZAPCollectionViewCell: UICollectionViewCell {
     }
     
     
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        cellimage = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height*2/3))
+        cellimage.contentMode = UIViewContentMode.ScaleAspectFit
+        contentView.addSubview(cellimage)
+    }
 //    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
 //        super.init(getdata: SecondViewController, bundle: nil)
 //        // Custom initialization

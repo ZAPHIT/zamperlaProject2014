@@ -23,7 +23,7 @@ class SketchImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageNames.text = nameHolder
+        //imageNames.text = nameHolder
         loadLocalData()
     }
 

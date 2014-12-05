@@ -38,7 +38,7 @@ class ViewRidesViewController: UIViewController {
             
                 if let obj = obj as? KiddieRideRealm
                 {
-                    if (obj.kiddieName == rideImageName)
+                    if (obj.kiddieTag == rideImageName)
                     {
                         
                         let image = UIImage(data: obj.kiddieData)
@@ -58,7 +58,7 @@ class ViewRidesViewController: UIViewController {
             
             if let obj = obj as? SketchRealm
             {
-                if (obj.sketchName == rideImageName)
+                if (obj.sketchTag == rideImageName)
                 {
                     let image = UIImage(data: obj.sketchData)
                     self.zamperlaRideView.image = image
@@ -74,16 +74,5 @@ class ViewRidesViewController: UIViewController {
         
     }
 
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

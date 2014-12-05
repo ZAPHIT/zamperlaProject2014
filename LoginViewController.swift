@@ -8,6 +8,8 @@
 
 import UIKit
 import SystemConfiguration
+import Realm
+import Parse
 
 
 class OfflineRealmUser: RLMObject {
@@ -91,9 +93,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                                 loginsuccess.addButtonWithTitle("Dismiss")
                                 loginsuccess.show()
                                 
+                                
                                 println("TRUE")
                                 let initialView = self.storyboard!.instantiateViewControllerWithIdentifier("InitialZAPViewController") as InitialZAPViewController
                                 self.navigationController!.pushViewController(initialView, animated:true)
+
                             })
                             
                             let no = UIAlertAction(title: "No", style: .Cancel) { (action) -> Void in
@@ -112,9 +116,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                             alertController2.addAction(yes)
                             alertController2.addAction(no)
                             self.presentViewController(alertController2, animated: true, completion: nil)
-                            
-                            self.loginPassText.text = ""
-                            self.loginUserText.text = ""
+
 
                         }
                         else
@@ -140,6 +142,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                     }
 
             }
+
         }
             
         else if (offlineuserCache > 0) {

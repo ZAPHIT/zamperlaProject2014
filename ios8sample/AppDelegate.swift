@@ -8,6 +8,7 @@
 
 import UIKit
 import Realm
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.setApplicationId("EXVP6w8bsHBdhwWIXz2tOPvvPyLDDLM0VAKjjGCx", clientKey: "GijsKuyEPLp1IAbEgRMs0Mfyj2mNVYlm8jOsbtga")
         
-       // NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
+       //NSFileManager.defaultManager().removeItemAtPath(RLMRealm.defaultRealmPath(), error: nil)
         let realm = RLMRealm.defaultRealm()
         
         var error: NSError?

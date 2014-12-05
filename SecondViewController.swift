@@ -15,13 +15,23 @@ class SecondViewController: UIViewController {
 
     @IBOutlet var view1: UIView!
     
+    @IBOutlet var newImage: UIImageView!
+    
+    
+    
     @IBOutlet var enlargeView: UIImageView!
+    
+    
+    var newImageBuffer: UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadLocalData()
+        newImage.image = newImageBuffer
+        
+        
         // Do any additional setup after loading the view.
-        lbl1.text = imageNameHolder
+       // lbl1.text = imageNameHolder
     }
 
     override func didReceiveMemoryWarning() {

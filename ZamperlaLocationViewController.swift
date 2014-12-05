@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 
 class ZamperlaLocationViewController: UIViewController, MKMapViewDelegate , UIPickerViewDataSource,UIPickerViewDelegate{
     @IBOutlet var locationViewBackground: UIImageView!
