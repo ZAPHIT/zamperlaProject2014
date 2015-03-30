@@ -54,10 +54,8 @@ class PageItem3rdViewController: UIViewController {
                     
                     println("2!!\(imageNameTag)")
                     contentaLabele.text = self.imageNameTag
-                    
                 }
             }
-            
         }
         
         
@@ -67,15 +65,14 @@ class PageItem3rdViewController: UIViewController {
             if (obj.ZamperlaRideCount == imageNameTag)
             {
                 println("3!!\(imageNameTag)")
+                contentaImahe.image = image
                 contentaLabele.text = self.imageNameTag
-                
             }
             else
             {
             }
             
             }
-            
         }
         
 

@@ -202,7 +202,7 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
             for obj in ZamperlaRealmDatabase.allObjects()
             {if let obj = obj as? ZamperlaRealmDatabase
             {  let image = UIImage(data: obj.ZamperlaData)
-                if (obj.ZamperlaRideName == objectSearch[indexPath.row])
+                if (obj.ZamperlaRideCount == objectSearch[indexPath.row])
                 {
                  cell.contentImageCell.image = image
                     cell.tags.text = obj.ZamperlaRideCount
@@ -211,16 +211,12 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
                 else
                 {
                 }
-                
+
             }
 
             }
             
-            
-            
         }
-        
-        
         
         
         return cell

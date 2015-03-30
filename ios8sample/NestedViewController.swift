@@ -79,7 +79,7 @@ class NestedViewController: UIViewController,UICollectionViewDataSource, UIColle
             for obj in ZamperlaRealmDatabase.allObjects()
             {   if let obj = obj as? ZamperlaRealmDatabase
                 {
-                    if(obj.ZamperlaRideName == rideName)
+                    if(obj.ZamperlaRideCount == rideName)
                     {
                         let image = UIImage(data: obj.ZamperlaData)
                         self.imageArray.addObject(image!)
