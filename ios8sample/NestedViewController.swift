@@ -23,8 +23,9 @@ class NestedViewController: UIViewController,UICollectionViewDataSource, UIColle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        println("FORWARD STRING!!!! >>>> \(forwardedString)")
         // Do any additional setup after loading the view.
-        loadLocalData()
+        self.loadLocalData()
         nestedCollection.panGestureRecognizer.delaysTouchesBegan = nestedCollection.delaysContentTouches
         
         self.imagesAllCount.text = "\(self.imageArray.count) images"
@@ -75,12 +76,14 @@ class NestedViewController: UIViewController,UICollectionViewDataSource, UIColle
         
         let categoryNumber = categoryForwardedBuffer
         let rideName = forwardedString
+        println("LOADED LOCAL DATA! > > > > > >>  > > > > > > > > > > > >\(rideName)")
 
             for obj in ZamperlaRealmDatabase.allObjects()
             {   if let obj = obj as? ZamperlaRealmDatabase
                 {
-                    if(obj.ZamperlaRideCount == rideName)
+                    if(rideName == obj.ZamperlaRideName)
                     {
+                        println("MATCH!!!!!")
                         let image = UIImage(data: obj.ZamperlaData)
                         self.imageArray.addObject(image!)
                         self.nestedCollection.reloadData()

@@ -44,6 +44,7 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
     var selectedIndex = 0
     var rideindex = 0
     var y : Int = 0
+    var itemSearch: NSString = ""
     
     
     var productTypes: NSMutableArray = NSMutableArray()
@@ -353,6 +354,18 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         NSLog("The default search bar keyboard search button was tapped: \(searchBar.text).")
+        self.producttableview.reloadData()
+        objectSearch.removeAll(keepCapacity: true)
+        if(![self.itemSearch as NSString].isEmpty)
+        {
+            searchName(self.itemSearch as NSString)
+            self.producttableview.reloadData()
+        }
+        else
+        {
+            objectSearch = objectArrays
+            self.producttableview.reloadData()
+        }
         
         searchBar.resignFirstResponder()
     }
@@ -363,7 +376,11 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
         return true
     }
     
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        self.itemSearch = searchText
+    }
     
+    /*
     func searchBar(searchBar: UISearchBar!, textDidChange searchText: String!)
     {
         self.producttableview.reloadData()
@@ -379,6 +396,7 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
                 self.producttableview.reloadData()
             }
     }
+    */
     
     
     func searchName (searchText: String)
