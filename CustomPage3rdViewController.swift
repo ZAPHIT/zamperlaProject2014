@@ -143,6 +143,15 @@ class CustomPage3rdViewController: UIViewController, UIPageViewControllerDataSou
         //self.allall.addObject(objj.sketchTag)
         }
     }
+        
+        for obj in ZamperlaRealmDatabase.allObjects()
+        {   if let obj = obj as? ZamperlaRealmDatabase
+            {
+            self.allImages.append(obj.ZamperlaRideCount)
+            }
+            
+        }
+    
 }
 
 

@@ -18,6 +18,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Realm/RLMConstants.h>
+#import <Realm/RLMObjectBase.h>
 
 @class RLMRealm;
 @class RLMResults;
@@ -70,7 +71,7 @@
  */
 
 
-@interface RLMObject : NSObject
+@interface RLMObject : RLMObjectBase
 
 /**---------------------------------------------------------------------------------------
  *  @name Creating & Initializing Objects
@@ -85,7 +86,7 @@
  
  @see [RLMRealm addObject:]:
  */
--(instancetype)init;
+- (instancetype)init;
 
 
 /**
@@ -111,6 +112,9 @@
 
  Creates an instance of this object and adds it to the default Realm populating
  the object with the given object.
+ 
+ If nested objects are included in the argument, `createInDefaultRealmWithObject:` will be called
+ on them.
 
  @param object  The object used to populate the object. This can be any key/value coding compliant
                 object, or a JSON object such as those returned from the methods in NSJSONSerialization, or
@@ -121,13 +125,16 @@
 
  @see   defaultPropertyValues
  */
-+(instancetype)createInDefaultRealmWithObject:(id)object;
++ (instancetype)createInDefaultRealmWithObject:(id)object;
 
 /**
  Create an RLMObject in a Realm with a given object.
  
  Creates an instance of this object and adds it to the given Realm populating
  the object with the given object.
+ 
+ If nested objects are included in the argument, `createInRealm:withObject:` will be called
+ on them.
  
  @param realm   The Realm in which this object is persisted.
  @param object  The object used to populate the object. This can be any key/value coding compliant
@@ -139,7 +146,7 @@
  
  @see   defaultPropertyValues
  */
-+(instancetype)createInRealm:(RLMRealm *)realm withObject:(id)object;
++ (instancetype)createInRealm:(RLMRealm *)realm withObject:(id)object;
 
 /**
  Create or update an RLMObject in the default Realm with a given object.
@@ -147,6 +154,11 @@
  This method can only be called on object types with a primary key defined. If there is already
  an object with the same primary key value in the default RLMRealm its values are updated and the object
  is returned. Otherwise this creates and populates a new instance of this object in the default Realm.
+ 
+ If nested objects are included in the argument, `createOrUpdateInDefaultRealmWithObject:` will be
+ called on them if have a primary key (`createInDefaultRealmWithObject:` otherwise).
+ 
+ This is a no-op if the argument is an RLMObject of the same type already backed by the target realm.
 
  @param object  The object used to populate the object. This can be any key/value coding compliant
                 object, or a JSON object such as those returned from the methods in NSJSONSerialization, or
@@ -157,7 +169,7 @@
 
  @see   defaultPropertyValues, primaryKey
  */
-+(instancetype)createOrUpdateInDefaultRealmWithObject:(id)object;
++ (instancetype)createOrUpdateInDefaultRealmWithObject:(id)object;
 
 /**
  Create or update an RLMObject with a given object.
@@ -165,6 +177,11 @@
  This method can only be called on object types with a primary key defined. If there is already
  an object with the same primary key value in the provided RLMRealm its values are updated and the object
  is returned. Otherwise this creates and populates a new instance of this object in the provided Realm.
+ 
+ If nested objects are included in the argument, `createOrUpdateInRealm:withObject:` will be
+ called on them if have a primary key (`createInRealm:withObject:` otherwise).
+
+ This is a no-op if the argument is an RLMObject of the same type already backed by the target realm.
 
  @param realm   The Realm in which this object is persisted.
  @param object  The object used to populate the object. This can be any key/value coding compliant
@@ -176,7 +193,7 @@
 
  @see   defaultPropertyValues, primaryKey
  */
-+(instancetype)createOrUpdateInRealm:(RLMRealm *)realm withObject:(id)object;
++ (instancetype)createOrUpdateInRealm:(RLMRealm *)realm withObject:(id)object;
 
 /**
  The Realm in which this object is persisted. Returns nil for standalone objects.
@@ -189,9 +206,11 @@
 @property (nonatomic, readonly) RLMObjectSchema *objectSchema;
 
 /**
- Indicates if an object has been deleted from a Realm and can no longer be accessed.
+ Indicates if an object can no longer be accessed.
  */
-@property (nonatomic, readonly, getter = isDeletedFromRealm) BOOL deletedFromRealm;
+@property (nonatomic, readonly, getter = isInvalidated) BOOL invalidated;
+
+@property (nonatomic, readonly, getter = isDeletedFromRealm) BOOL deletedFromRealm __attribute__((deprecated("Use `invalidated` instead.")));
 
 
 /**---------------------------------------------------------------------------------------
@@ -345,6 +364,17 @@
  @see       -primaryKey
  */
 + (instancetype)objectInRealm:(RLMRealm *)realm forPrimaryKey:(id)primaryKey;
+
+/**
+ Get an `NSArray` of objects of type `className` which have this object as the given property value. This can
+ be used to get the inverse relatshionship value for `RLMObject` and `RLMArray` properties.
+
+ @param className   The type of object on which the relationship to query is defined.
+ @param property    The name of the property which defines the relationship.
+
+ @return    An NSArray of objects of type `className` which have this object as thier value for the `property` property.
+ */
+- (NSArray *)linkingObjectsOfClass:(NSString *)className forProperty:(NSString *)property;
 
 /**
  Returns YES if another RLMObject points to the same object in an RLMRealm. For RLMObject types

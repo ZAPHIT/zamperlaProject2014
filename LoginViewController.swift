@@ -359,12 +359,17 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         self.navigationController!.pushViewController(registerView, animated: true)
     }
     
+    
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         internetDetector()
         let url = (NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains:.UserDomainMask)[0] as NSURL)
         println(url)
+        
         
         loginUserText.delegate = self
         loginPassText.delegate = self

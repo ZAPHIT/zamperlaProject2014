@@ -60,6 +60,24 @@ class PageItem3rdViewController: UIViewController {
             
         }
         
+        
+        for obj in ZamperlaRealmDatabase.allObjects()
+        {if let obj = obj as? ZamperlaRealmDatabase
+        {  let image = UIImage(data: obj.ZamperlaData)
+            if (obj.ZamperlaRideCount == imageNameTag)
+            {
+                println("3!!\(imageNameTag)")
+                contentaLabele.text = self.imageNameTag
+                
+            }
+            else
+            {
+            }
+            
+            }
+            
+        }
+        
 
         
     }

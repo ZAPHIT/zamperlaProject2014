@@ -97,26 +97,6 @@ class SketchViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-
-        
-        
-//        for obj in SketchRealm.allObjects()        {
-//            
-//            if let obj = obj as? SketchRealm
-//            {
-//               
-//               
-//                if (obj.sketchID == String(sketchLocalIDArray[indexPath.row] as NSString))
-//                {
-//                    self.nameLabel.text = obj.sketchName
-//                    imageNameHolder = obj.sketchName
-//                }
-//            }
-//            else
-//            {
-//                
-//            }
-//        }
         
         
         let viewSketches = self.storyboard!.instantiateViewControllerWithIdentifier("CustomPageViewController") as CustomPageViewController
@@ -151,23 +131,6 @@ class SketchViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        
-//        if (segue.identifier == "mySegue") {
-//            
-//            let vc = segue.destinationViewController as SketchImageViewController
-//            vc.nameHolder = imageNameHolder
-//            
-//            
-//        }
-        
-//                if (segue.identifier == "showSketch") {
-//        
-//                    let vc = segue.destinationViewController as CustomPageViewController
-//                    vc.bufferIndex = self.bufferingIndex
-//        
-//                }
-        
-        
         
         if (segue.identifier == "mySegue2") {
             

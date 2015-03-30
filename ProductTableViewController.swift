@@ -74,21 +74,26 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
         objectSearch.removeAll(keepCapacity: true)
         objectArrays.removeAll()
         self.producttableview.reloadData()
-
+        
+        //zamperlaSegmentControl.tintColor = UIColor.brownColor()
         switch zamperlaSegmentControl.selectedSegmentIndex
         {
             case 0:
             println("case 0")
             selectedIndex = 0
+           
             loadLocalData()
             case 1:
             println("case 1")
             selectedIndex = 1
+            
             loadLocalData()
 
 
 
             default:
+           
+                
             break;
         }
         
@@ -125,7 +130,6 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
         //cell.textLabel.text = (collectionArray.objectAtIndex(indexPath.row) as String)
         //cell.nameLabelCell.text = objectSearch[indexPath.row]
         //cell.textLabel.text = objectSearch[indexPath.row]
-        
         
         
         if (selectedIndex == 0){
@@ -195,6 +199,23 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
                 }
             }
             
+            for obj in ZamperlaRealmDatabase.allObjects()
+            {if let obj = obj as? ZamperlaRealmDatabase
+            {  let image = UIImage(data: obj.ZamperlaData)
+                if (obj.ZamperlaRideName == objectSearch[indexPath.row])
+                {
+                 cell.contentImageCell.image = image
+                    cell.tags.text = obj.ZamperlaRideCount
+                    cell.categoryLabel.text = obj.ZamperlaRideName
+                }
+                else
+                {
+                }
+                
+            }
+
+            }
+            
             
             
         }
@@ -225,6 +246,61 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
             
            println("test2") 
             
+        }
+            
+        else if (selectedText == "Tweener_Rides" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "Tweener_Rides"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
+            
+        }
+        
+        else if (selectedText == "Tower_Rides" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "Tower_Rides"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
+        }
+        
+        else if (selectedText == "Thrill_Rides" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "Thrill_Rides"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
+        }
+        
+        else if (selectedText == "People_Movers" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "People_Movers"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
+        }
+        
+        else if (selectedText == "Major_Rides" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "Major_Rides"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
+        }
+            
+        else if (selectedText == "Roller_Coasters" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "Roller_Coasters"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
+        }
+            
+        else if (selectedText == "Family_Rides" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "Family_Rides"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
+        }
+            
+        else if (selectedText == "Aqua_Rides" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "Aqua_Rides"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
+        }
+        
+        else if (selectedText == "Kiddie_Rides" && selectedIndex == 0){
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
+            viewCategory.forwardString = "Kiddie_Rides"
+            self.navigationController!.pushViewController(viewCategory, animated: true)
         }
 
         else if (selectedIndex == 1){
@@ -279,6 +355,11 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
         
     }
     
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        NSLog("The default search bar keyboard search button was tapped: \(searchBar.text).")
+        
+        searchBar.resignFirstResponder()
+    }
     
     func searchBarShouldEndEditing(searchBar: UISearchBar!) -> Bool
     {
@@ -329,7 +410,8 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
         objectArrays.removeAll()
         if(selectedIndex == 0)
             {
-                zamperlaSearch.placeholder = "Search for a category subject"
+                zamperlaSearch.placeholder = "Type & search for a category subject here"
+                
                 for obj in ProductType.allObjects()
                     {
             
@@ -348,7 +430,7 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
             }
         else if (selectedIndex == 1)
             {
-               zamperlaSearch.placeholder = "Search for the Zamperla Product Tag"
+               zamperlaSearch.placeholder = "Type & search for Product Tag here"
                 for obj in KiddieRideRealm.allObjects()
                 {
             
@@ -378,6 +460,19 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
                 {
                     }
                 }
+                
+                for obj in ZamperlaRealmDatabase.allObjects()
+                {if let obj = obj as? ZamperlaRealmDatabase
+                {  let image = UIImage(data: obj.ZamperlaData)
+                    objectArrays.append(obj.ZamperlaRideCount)
+                    collectionArray.addObject(obj.ZamperlaRideCount)
+                    
+                }
+                else
+                {
+                    }
+                }
+
 
             }
         
