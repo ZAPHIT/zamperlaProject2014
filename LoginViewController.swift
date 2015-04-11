@@ -238,7 +238,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
     {
         loginUserText.resignFirstResponder()
         loginPassText.resignFirstResponder()
@@ -246,15 +246,16 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
 
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
+    
+
     
     override func shouldAutorotate() -> Bool {
         
         
-        if (interfaceOrientation.rawValue == 0){
+        if (UIDevice .currentDevice().orientation.rawValue == 0){
             println("false")
             return false
             
