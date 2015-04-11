@@ -283,7 +283,7 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
         }
             
         else if (selectedText == "Family_Rides" && selectedIndex == 0){
-            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as! CategoryTableViewController
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
             viewCategory.forwardString = "Family_Rides"
             self.navigationController!.pushViewController(viewCategory, animated: true)
         }
@@ -295,7 +295,7 @@ class ProductTableViewController: UIViewController, UITableViewDelegate , UISear
         }
         
         else if (selectedText == "Kiddie_Rides" && selectedIndex == 0){
-            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as! CategoryTableViewController
+            let viewCategory = self.storyboard!.instantiateViewControllerWithIdentifier("CategoryTableViewController") as CategoryTableViewController
             viewCategory.forwardString = "Kiddie_Rides"
             self.navigationController!.pushViewController(viewCategory, animated: true)
         }
